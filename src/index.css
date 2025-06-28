@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-900 text-white font-sans;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .neon-glow {
+    @apply shadow-[0_0_20px_rgba(0,212,255,0.5)];
+  }
+  
+  .neon-text {
+    @apply text-neon-blue drop-shadow-[0_0_10px_rgba(0,212,255,0.8)];
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-blue/20;
+  }
+  
+  .button-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-neon-blue/30 transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .button-secondary {
+    @apply px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-white transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neon-blue rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neon-purple;
+}
+
+/* Matrix rain effect */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.matrix-char {
+  color: #00ff00;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  animation: matrix 20s linear infinite;
+}
+
+/* Loading screen styles */
+.loading-screen {
+  @apply fixed inset-0 bg-dark-900 flex items-center justify-center z-50;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.loading-text {
+  @apply text-4xl font-mono text-neon-blue;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+  animation: loading-pulse 2s ease-in-out infinite;
+}
+
+/* Loading animation */
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+/* 3D Intro specific styles */
+.intro-canvas {
+  @apply w-full h-full;
+}
+
+.intro-skip-button {
+  @apply absolute top-8 right-8 z-10 px-6 py-3 bg-neon-blue/20 text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition-all duration-300 border border-neon-blue/30 backdrop-blur-sm;
+  animation: fadeInUp 0.5s ease-out 3s both;
+}
+
+.intro-loading-indicator {
+  @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10;
+  animation: fadeIn 0.5s ease-out 1s both;
+}
+
+/* Keyframe animations */
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+@keyframes loading-pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+  to { box-shadow: 0 0 30px rgba(0, 212, 255, 0.8); }
+}
+
+@keyframes matrix {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+} 
