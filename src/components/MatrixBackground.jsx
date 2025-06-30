@@ -17,36 +17,39 @@ const MatrixBackground = () => {
     window.addEventListener('resize', resizeCanvas);
 
     // Matrix characters
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
     const charArray = chars.split('');
 
-    // Columns
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = [];
+    // Matrix columns
+    const columns = Math.floor(canvas.width / 20);
+    const drops = new Array(columns).fill(1);
 
-    // Initialize drops
-    for (let i = 0; i < columns; i++) {
-      drops[i] = 1;
-    }
-
-    // Animation function
+    // Animation
     const draw = () => {
-      // Semi-transparent background to create fade effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      // Semi-transparent black background for fade effect
+      ctx.fillStyle = 'rgba(3, 3, 3, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Set text properties
-      ctx.fillStyle = '#00ff00';
-      ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
+      // Matrix characters
+      ctx.fillStyle = '#6366f1'; // Indigo color to match theme
+      ctx.font = '14px JetBrains Mono';
 
-      // Draw characters
       for (let i = 0; i < drops.length; i++) {
-        const text = charArray[Math.floor(Math.random() * charArray.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        const char = charArray[Math.floor(Math.random() * charArray.length)];
+        const x = i * 20;
+        const y = drops[i] * 20;
 
-        // Reset drop to top with random delay
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        // Gradient effect
+        const gradient = ctx.createLinearGradient(x, y - 20, x, y + 20);
+        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.8)');
+        gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.4)');
+        gradient.addColorStop(1, 'rgba(99, 102, 241, 0.1)');
+        
+        ctx.fillStyle = gradient;
+        ctx.fillText(char, x, y);
+
+        // Reset drop when it reaches bottom
+        if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
         }
 
@@ -54,7 +57,6 @@ const MatrixBackground = () => {
       }
     };
 
-    // Start animation
     const interval = setInterval(draw, 50);
 
     return () => {
@@ -66,7 +68,8 @@ const MatrixBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-10"
+      className="matrix-bg fixed inset-0 pointer-events-none z-0"
+      style={{ opacity: 0.05 }}
     />
   );
 };

@@ -36,6 +36,19 @@ export default {
           green: '#00ff88',
           purple: '#8b5cf6',
           pink: '#ec4899',
+        },
+        // New geometric theme colors
+        geometric: {
+          black: '#030303',
+          dark: '#0a0a0a',
+          gray: '#1a1a1a',
+          light: '#2a2a2a',
+          white: '#ffffff',
+          indigo: '#6366f1',
+          rose: '#f43f5e',
+          violet: '#8b5cf6',
+          amber: '#f59e0b',
+          cyan: '#06b6d4',
         }
       },
       animation: {
@@ -56,8 +69,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 15px #00d4ff' },
-          '100%': { boxShadow: '0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff' },
+          '0%': { boxShadow: '0 0 5px #6366f1, 0 0 10px #6366f1, 0 0 15px #6366f1' },
+          '100%': { boxShadow: '0 0 10px #6366f1, 0 0 20px #6366f1, 0 0 30px #6366f1' },
         },
         fadeIn: {
           '0%': { opacity: '0' },
@@ -92,5 +105,17 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.glass': {
+          background: 'rgba(255, 255, 255, 0.02)',
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        },
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 } 

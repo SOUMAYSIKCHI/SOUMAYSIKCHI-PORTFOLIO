@@ -5,46 +5,68 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
   }
   
   body {
-    @apply bg-dark-900 text-white font-sans;
+    @apply bg-[#030303] text-white font-sans;
+    overflow-x: hidden;
+  }
+
+  /* Enhanced smooth scrolling for all elements */
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth scroll for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scroll behavior for different elements */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  a, button, [role="button"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.08];
   }
   
   .neon-glow {
-    @apply shadow-[0_0_20px_rgba(0,212,255,0.5)];
+    @apply shadow-[0_0_20px_rgba(99,102,241,0.5)];
   }
   
   .neon-text {
-    @apply text-neon-blue drop-shadow-[0_0_10px_rgba(0,212,255,0.8)];
+    @apply text-indigo-400 drop-shadow-[0_0_10px_rgba(99,102,241,0.8)];
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-indigo-400 via-white to-rose-400 bg-clip-text text-transparent;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-blue/20;
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/20;
   }
   
   .button-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-neon-blue/30 transition-all duration-300 transform hover:scale-105;
+    @apply px-6 py-3 bg-gradient-to-r from-indigo-500 to-rose-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:scale-105;
   }
   
   .button-secondary {
-    @apply px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-white transition-all duration-300;
+    @apply px-6 py-3 bg-white/[0.03] border border-white/[0.08] text-white/80 font-semibold rounded-lg hover:bg-white/[0.08] hover:text-white transition-all duration-300 backdrop-blur-sm;
   }
 }
 
 @layer utilities {
   .text-shadow {
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
   }
   
   .animate-float {
@@ -62,15 +84,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-dark-800;
+  @apply bg-[#0a0a0a];
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-neon-blue rounded-full;
+  @apply bg-gradient-to-b from-indigo-500 to-rose-500 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-neon-purple;
+  @apply bg-gradient-to-b from-indigo-600 to-rose-600;
 }
 
 /* Matrix rain effect */
@@ -82,7 +104,7 @@
   height: 100%;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.1;
+  opacity: 0.05;
 }
 
 .matrix-char {
@@ -92,15 +114,15 @@
   animation: matrix 20s linear infinite;
 }
 
-/* Loading screen styles */
+/* Loading screen styles - Updated for new theme */
 .loading-screen {
-  @apply fixed inset-0 bg-dark-900 flex items-center justify-center z-50;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  @apply fixed inset-0 bg-[#030303] flex items-center justify-center z-50;
+  background: linear-gradient(135deg, #030303 0%, #0a0a0a 50%, #1a1a2e 100%);
 }
 
 .loading-text {
-  @apply text-4xl font-mono text-neon-blue;
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+  @apply text-4xl font-mono text-indigo-400;
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
   animation: loading-pulse 2s ease-in-out infinite;
 }
 
@@ -116,7 +138,7 @@
 }
 
 .intro-skip-button {
-  @apply absolute top-8 right-8 z-10 px-6 py-3 bg-neon-blue/20 text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition-all duration-300 border border-neon-blue/30 backdrop-blur-sm;
+  @apply absolute top-8 right-8 z-10 px-6 py-3 bg-white/[0.03] text-white/80 rounded-lg hover:bg-white/[0.08] hover:text-white transition-all duration-300 border border-white/[0.08] backdrop-blur-sm;
   animation: fadeInUp 0.5s ease-out 3s both;
 }
 
@@ -170,8 +192,8 @@
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
-  to { box-shadow: 0 0 30px rgba(0, 212, 255, 0.8); }
+  from { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+  to { box-shadow: 0 0 30px rgba(99, 102, 241, 0.8); }
 }
 
 @keyframes matrix {

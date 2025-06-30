@@ -9,7 +9,7 @@ const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const featuredProject = projects.find(p => p.featured);
+  const featuredProjects = projects.filter(p => p.featured);
   const otherProjects = projects.filter(p => !p.featured);
 
   const handleProjectClick = (project) => {
@@ -39,12 +39,13 @@ const Projects = () => {
 
   const ProjectCard = ({ project, isFeatured = false }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [imageIndex, setImageIndex] = useState(0);
 
     // Auto-slide effect for project images
     useEffect(() => {
       if (isHovered && project.imageGallery.length > 1) {
         const interval = setInterval(() => {
-          setCurrentImageIndex((prev) => 
+          setImageIndex((prev) => 
             (prev + 1) % project.imageGallery.length
           );
         }, 2000); // Change image every 2 seconds
@@ -57,22 +58,24 @@ const Projects = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        whileHover={{ scale: 1.05, y: -10 }}
+        whileHover={{ scale: 1.02, y: -5 }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
         onClick={() => handleProjectClick(project)}
         className={`glass rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
-          isFeatured ? 'col-span-full lg:col-span-2' : 'min-w-[300px]'
+          isFeatured ? 'w-full' : 'w-full'
         }`}
       >
-        {/* Project Image - Larger Square */}
-        <div className="relative h-64 overflow-hidden">
+        {/* Project Image - Better proportions for featured */}
+        <div className={`relative overflow-hidden ${
+          isFeatured ? 'h-80 lg:h-96' : 'h-64'
+        }`}>
           <img
-            src={project.imageGallery[currentImageIndex]}
+            src={project.imageGallery[imageIndex]}
             alt={project.name}
             className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
             onError={(e) => {
-              console.error(`Failed to load image: ${project.imageGallery[currentImageIndex]}`);
+              console.error(`Failed to load image: ${project.imageGallery[imageIndex]}`);
               e.target.style.display = 'none';
             }}
           />
@@ -81,7 +84,7 @@ const Projects = () => {
           {/* Image Counter */}
           {project.imageGallery.length > 1 && (
             <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded-full text-xs font-medium">
-              {currentImageIndex + 1} / {project.imageGallery.length}
+              {imageIndex + 1} / {project.imageGallery.length}
             </div>
           )}
           
@@ -93,7 +96,7 @@ const Projects = () => {
                   <div
                     key={index}
                     className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-                      index === currentImageIndex 
+                      index === imageIndex 
                         ? 'bg-neon-blue' 
                         : 'bg-white/30'
                     }`}
@@ -124,16 +127,24 @@ const Projects = () => {
         </div>
 
         {/* Project Info */}
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-white mb-2">{project.name}</h3>
-          <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+        <div className={`p-6 ${isFeatured ? 'lg:p-8' : ''}`}>
+          <h3 className={`font-bold text-white mb-2 ${
+            isFeatured ? 'text-2xl lg:text-3xl' : 'text-xl'
+          }`}>
+            {project.name}
+          </h3>
+          <p className={`text-gray-400 mb-4 line-clamp-2 ${
+            isFeatured ? 'text-lg lg:text-xl' : 'text-sm'
+          }`}>
             {project.description}
           </p>
 
           {/* Taglines */}
           <div className="space-y-2 mb-4">
-            {project.taglines.slice(0, 2).map((tagline, index) => (
-              <div key={index} className="text-xs text-gray-500">
+            {project.taglines.slice(0, isFeatured ? 3 : 2).map((tagline, index) => (
+              <div key={index} className={`text-gray-500 ${
+                isFeatured ? 'text-sm lg:text-base' : 'text-xs'
+              }`}>
                 {tagline}
               </div>
             ))}
@@ -184,24 +195,26 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="gradient-text">Featured Project</span>
+            <span className="gradient-text">Featured Projects</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            A showcase of my most impactful work, demonstrating full-stack development expertise
+            A showcase of my most impactful work, demonstrating both frontend and backend development expertise
           </p>
         </motion.div>
 
-        {/* Featured Project */}
-        {featuredProject && (
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-20"
-          >
-            <ProjectCard project={featuredProject} isFeatured={true} />
-          </motion.div>
-        )}
+        {/* Featured Projects Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-20"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={project.name} project={project} isFeatured={true} />
+            ))}
+          </div>
+        </motion.div>
 
         {/* Other Projects Header */}
         <motion.div

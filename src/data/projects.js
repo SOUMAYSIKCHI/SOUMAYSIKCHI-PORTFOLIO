@@ -42,7 +42,7 @@ const projects = [
       "/projects/Devdetective-2.png",
       "/projects/Devdetective-3.png"
     ],
-    featured: true,
+    featured: false,
     type: "GitHub User Explorer"
   },
   {

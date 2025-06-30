@@ -1,47 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiHeart } from 'react-icons/fi';
-import { socialLinks } from '../data/portfolioMeta';
+import { FiHeart, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { portfolioMeta, socialLinks } from '../data/portfolioMeta';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 relative overflow-hidden">
+    <footer className="relative py-20 bg-[#030303] overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-neon-blue/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/2 right-1/4 w-24 h-24 bg-neon-purple/10 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/[0.03] via-transparent to-rose-500/[0.03] blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-32 h-32 bg-violet-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-amber-500/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center">
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex justify-center gap-6 mb-8"
-          >
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-12 h-12 glass rounded-full flex items-center justify-center text-neon-blue hover:text-white hover:bg-neon-blue transition-all duration-300"
-              >
-                {link.name === 'LinkedIn' && <FiLinkedin className="text-xl" />}
-                {link.name === 'GitHub' && <FiGithub className="text-xl" />}
-                {link.name === 'Email' && <FiMail className="text-xl" />}
-              </motion.a>
-            ))}
-          </motion.div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Main Footer Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,9 +30,12 @@ const Footer = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-2xl font-bold gradient-text"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] w-fit mx-auto"
               >
-                PORTFOLIO
+                <div className="h-2 w-2 rounded-full bg-rose-500/80"></div>
+                <span className="text-sm text-white/60 tracking-wide font-medium">
+                  PORTFOLIO
+                </span>
               </motion.div>
 
               {/* Tagline */}
@@ -65,7 +43,7 @@ const Footer = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-gray-400 text-lg"
+                className="text-white/40 text-lg font-light tracking-wide"
               >
                 Engineering Imagination into Code
               </motion.p>
@@ -75,31 +53,62 @@ const Footer = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex items-center justify-center gap-2 text-gray-500"
+                className="flex items-center justify-center gap-2 text-white/30"
               >
                 <span>Made with</span>
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 >
-                  <FiHeart className="text-red-500" />
+                  <FiHeart className="text-rose-500" />
                 </motion.div>
-                <span>& Three.js</span>
+                <span>& Modern Web Technologies</span>
               </motion.div>
             </div>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex justify-center gap-6 mt-8"
+          >
+            <a
+              href={portfolioMeta.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white/[0.03] border border-white/[0.08] rounded-lg text-white/60 hover:text-white hover:bg-white/[0.08] transition-all duration-300 backdrop-blur-sm"
+            >
+              <FiGithub className="text-xl" />
+            </a>
+            <a
+              href={portfolioMeta.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white/[0.03] border border-white/[0.08] rounded-lg text-white/60 hover:text-white hover:bg-white/[0.08] transition-all duration-300 backdrop-blur-sm"
+            >
+              <FiLinkedin className="text-xl" />
+            </a>
+            <a
+              href={`mailto:${portfolioMeta.email}`}
+              className="p-3 bg-white/[0.03] border border-white/[0.08] rounded-lg text-white/60 hover:text-white hover:bg-white/[0.08] transition-all duration-300 backdrop-blur-sm"
+            >
+              <FiMail className="text-xl" />
+            </a>
           </motion.div>
 
           {/* Copyright */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-8 text-center text-gray-500"
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="mt-8 text-center text-white/30"
           >
             <p className="text-sm">
-              © {currentYear} Soumay Sikchi. All rights reserved.
+              © {currentYear} {portfolioMeta.username}. All rights reserved.
             </p>
-            <p className="text-xs mt-2 text-gray-600">
+            <p className="text-xs mt-2 text-white/20">
               Built with React, Three.js, and Tailwind CSS
             </p>
           </motion.div>
@@ -108,9 +117,9 @@ const Footer = () => {
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="mt-8 px-6 py-3 glass rounded-lg text-neon-blue hover:text-white hover:bg-neon-blue transition-all duration-300 flex items-center gap-2 mx-auto"
+            className="mt-8 px-6 py-3 glass rounded-lg text-white/80 hover:text-white hover:bg-white/[0.08] transition-all duration-300 flex items-center gap-2 mx-auto"
           >
             <svg
               className="w-4 h-4"
@@ -128,29 +137,6 @@ const Footer = () => {
             Back to Top
           </motion.button>
         </div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-neon-blue/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
       </div>
     </footer>
   );
