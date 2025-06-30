@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Footer from './components/Footer';
 import MatrixBackground from './components/MatrixBackground';
+import CursorGlow from './components/CursorGlow';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="App relative min-h-screen bg-[#030303] overflow-x-hidden">
+      <CursorGlow />
       <MatrixBackground />
       
       <motion.div
