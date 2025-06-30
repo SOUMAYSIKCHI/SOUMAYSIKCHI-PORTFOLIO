@@ -70,7 +70,7 @@ export default function SplineSection() {
 
             {/* Spline Model Container */}
             <div className="relative z-10">
-              <div className="w-full h-[600px] lg:h-[700px] rounded-xl overflow-hidden bg-white/[0.02] border border-white/[0.08]">
+              <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[700px] rounded-xl overflow-hidden bg-white/[0.02] border border-white/[0.08]">
                 <Spline scene="https://prod.spline.design/B3eChdTb0AiyD-W3/scene.splinecode" />
               </div>
             </div>

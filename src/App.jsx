@@ -42,9 +42,9 @@ function App() {
       >
         <Hero />
         <Skills />
-        <SplineSection />
         <Projects />
         <Certifications />
+        <SplineSection />
         <Footer />
       </motion.div>
     </div>
