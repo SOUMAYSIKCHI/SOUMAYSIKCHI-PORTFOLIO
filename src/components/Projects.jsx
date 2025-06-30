@@ -37,6 +37,8 @@ const Projects = () => {
     }
   };
 
+  const baseUrl = import.meta.env.BASE_URL;
+
   const ProjectCard = ({ project, isFeatured = false }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [imageIndex, setImageIndex] = useState(0);
@@ -71,7 +73,7 @@ const Projects = () => {
           isFeatured ? 'h-80 lg:h-96' : 'h-64'
         }`}>
           <img
-            src={project.imageGallery[imageIndex]}
+            src={baseUrl + project.imageGallery[imageIndex]}
             alt={project.name}
             className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
             onError={(e) => {
@@ -282,7 +284,7 @@ const Projects = () => {
               {/* Image Gallery */}
               <div className="relative h-96">
                 <img
-                  src={selectedProject.imageGallery[currentImageIndex]}
+                  src={baseUrl + selectedProject.imageGallery[currentImageIndex]}
                   alt={`${selectedProject.name} - Image ${currentImageIndex + 1}`}
                   className="w-full h-full object-cover"
                   onError={(e) => {

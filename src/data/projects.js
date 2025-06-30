@@ -14,14 +14,14 @@ const projects = [
     liveLink: "https://devsync.co.in",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      BASE_URL + "projects/devsync-1.png",
-      BASE_URL + "projects/devsync-2.png",
-      BASE_URL + "projects/devsync-3.png",
-      BASE_URL + "projects/devsync-4.png",
-      BASE_URL + "projects/devsync-5.png",
-      BASE_URL + "projects/devsync-6.png",
-      BASE_URL + "projects/devsync-7.png",
-      BASE_URL + "projects/devsync-8.png"
+      "/projects/devsync-1.png",
+      "/projects/devsync-2.png",
+      "/projects/devsync-3.png",
+      "/projects/devsync-4.png",
+      "/projects/devsync-5.png",
+      "/projects/devsync-6.png",
+      "/projects/devsync-7.png",
+      "/projects/devsync-8.png"
     ],
     featured: true,
     type: "Developer Collaboration Suite"
@@ -39,9 +39,9 @@ const projects = [
     liveLink: "https://dev-detective-js.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      BASE_URL + "projects/Devdetective-1.png",
-      BASE_URL + "projects/Devdetective-2.png",
-      BASE_URL + "projects/Devdetective-3.png"
+      "/projects/Devdetective-1.png",
+      "/projects/Devdetective-2.png",
+      "/projects/Devdetective-3.png"
     ],
     featured: false,
     type: "GitHub User Explorer"
@@ -59,9 +59,9 @@ const projects = [
     liveLink: "https://weatherapp-js-soumayskchi.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      BASE_URL + "projects/Weather_App-1.png",
-      BASE_URL + "projects/Weather_App-2.png",
-      BASE_URL + "projects/Weather_App-3.png"
+      "/projects/Weather_App-1.png",
+      "/projects/Weather_App-2.png",
+      "/projects/Weather_App-3.png"
     ],
     featured: false,
     type: "Weather Dashboard"
@@ -79,8 +79,8 @@ const projects = [
     liveLink: "http://soumaysikchi-todoapp.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      BASE_URL + "projects/TODO_1.png",
-      BASE_URL + "projects/TODO_2.png"
+      "/projects/TODO_1.png",
+      "/projects/TODO_2.png"
     ],
     featured: false,
     type: "Task Management Tool"
@@ -98,8 +98,8 @@ const projects = [
     liveLink: "https://musify-jssoumay.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      BASE_URL + "projects/Musify-1.png",
-      BASE_URL + "projects/Musify-2.png"
+      "/projects/Musify-1.png",
+      "/projects/Musify-2.png"
     ],
     featured: false,
     type: "Web-based Music Player"
@@ -117,10 +117,10 @@ const projects = [
     liveLink: "https://namaste-dhaba.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      BASE_URL + "projects/Namaste_Dhaba-1.png",
-      BASE_URL + "projects/Namaste_Dhaba-2.png",
-      BASE_URL + "projects/Namaste_Dhaba-3.png",
-      BASE_URL + "projects/Namaste-Dhaba-4.png"
+      "/projects/Namaste_Dhaba-1.png",
+      "/projects/Namaste_Dhaba-2.png",
+      "/projects/Namaste_Dhaba-3.png",
+      "/projects/Namaste-Dhaba-4.png"
     ],
     featured: true,
     type: "Interactive Food UI"
@@ -145,12 +145,12 @@ const projects = [
     liveLink: "https://stream-gpt-1.web.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      BASE_URL + "projects/GPT-1.png",
-      BASE_URL + "projects/GPT-2.png",
-      BASE_URL + "projects/GPT-3.png",
-      BASE_URL + "projects/GPT-4.png",
-      BASE_URL + "projects/GPT-5.png",
-      BASE_URL + "projects/GPT-6.png"
+      "/projects/GPT-1.png",
+      "/projects/GPT-2.png",
+      "/projects/GPT-3.png",
+      "/projects/GPT-4.png",
+      "/projects/GPT-5.png",
+      "/projects/GPT-6.png"
     ],
     featured: true,
     type: "AI-Powered Movie Portal"
@@ -177,9 +177,9 @@ const projects = [
       "https://www.linkedin.com/posts/soumaysikchi_reactjs-reduxtoolkit-youtubeclone-activity-7292107074409218049-gSt-",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      BASE_URL + "projects/devtube-1.png",
-      BASE_URL + "projects/devtube-2.png",
-      BASE_URL + "projects/devtube-3.png"
+      "/projects/devtube-1.png",
+      "/projects/devtube-2.png",
+      "/projects/devtube-3.png"
     ],
     featured: true,
     type: "Interactive Video Portal"

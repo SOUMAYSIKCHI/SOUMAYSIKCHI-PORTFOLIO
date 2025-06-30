@@ -16,6 +16,8 @@ const Certifications = () => {
     setSelectedCert(null);
   };
 
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
     <section ref={ref} id="certifications" className="py-20 relative bg-[#030303]">
       {/* Background Elements */}
@@ -65,7 +67,7 @@ const Certifications = () => {
                 <div className="relative mb-4">
                   <div className="w-32 h-32 mx-auto rounded-full overflow-hidden bg-white/[0.05] border border-white/[0.08]">
                     <img
-                      src={cert.image}
+                      src={baseUrl + cert.image}
                       alt={cert.name}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       onError={(e) => {
