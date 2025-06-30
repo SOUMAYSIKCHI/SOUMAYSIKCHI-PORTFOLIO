@@ -1,3 +1,35 @@
+import devsync1 from '../assets/projects/devsync-1.png';
+import devsync2 from '../assets/projects/devsync-2.png';
+import devsync3 from '../assets/projects/devsync-3.png';
+import devsync4 from '../assets/projects/devsync-4.png';
+import devsync5 from '../assets/projects/devsync-5.png';
+import devsync6 from '../assets/projects/devsync-6.png';
+import devsync7 from '../assets/projects/devsync-7.png';
+import devsync8 from '../assets/projects/devsync-8.png';
+import devDetective1 from '../assets/projects/Devdetective-1.png';
+import devDetective2 from '../assets/projects/Devdetective-2.png';
+import devDetective3 from '../assets/projects/Devdetective-3.png';
+import weather1 from '../assets/projects/Weather_App-1.png';
+import weather2 from '../assets/projects/Weather_App-2.png';
+import weather3 from '../assets/projects/Weather_App-3.png';
+import todo1 from '../assets/projects/TODO_1.png';
+import todo2 from '../assets/projects/TODO_2.png';
+import musify1 from '../assets/projects/Musify-1.png';
+import musify2 from '../assets/projects/Musify-2.png';
+import namaste1 from '../assets/projects/Namaste_Dhaba-1.png';
+import namaste2 from '../assets/projects/Namaste_Dhaba-2.png';
+import namaste3 from '../assets/projects/Namaste_Dhaba-3.png';
+import namaste4 from '../assets/projects/Namaste-Dhaba-4.png';
+import gpt1 from '../assets/projects/GPT-1.png';
+import gpt2 from '../assets/projects/GPT-2.png';
+import gpt3 from '../assets/projects/GPT-3.png';
+import gpt4 from '../assets/projects/GPT-4.png';
+import gpt5 from '../assets/projects/GPT-5.png';
+import gpt6 from '../assets/projects/GPT-6.png';
+import devtube1 from '../assets/projects/devtube-1.png';
+import devtube2 from '../assets/projects/devtube-2.png';
+import devtube3 from '../assets/projects/devtube-3.png';
+
 const BASE_URL = import.meta.env.BASE_URL;
 const projects = [
   {
@@ -14,14 +46,14 @@ const projects = [
     liveLink: "https://devsync.co.in",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      "/projects/devsync-1.png",
-      "/projects/devsync-2.png",
-      "/projects/devsync-3.png",
-      "/projects/devsync-4.png",
-      "/projects/devsync-5.png",
-      "/projects/devsync-6.png",
-      "/projects/devsync-7.png",
-      "/projects/devsync-8.png"
+      devsync1,
+      devsync2,
+      devsync3,
+      devsync4,
+      devsync5,
+      devsync6,
+      devsync7,
+      devsync8
     ],
     featured: true,
     type: "Developer Collaboration Suite"
@@ -39,9 +71,9 @@ const projects = [
     liveLink: "https://dev-detective-js.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      "/projects/Devdetective-1.png",
-      "/projects/Devdetective-2.png",
-      "/projects/Devdetective-3.png"
+      devDetective1,
+      devDetective2,
+      devDetective3
     ],
     featured: false,
     type: "GitHub User Explorer"
@@ -59,9 +91,9 @@ const projects = [
     liveLink: "https://weatherapp-js-soumayskchi.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      "/projects/Weather_App-1.png",
-      "/projects/Weather_App-2.png",
-      "/projects/Weather_App-3.png"
+      weather1,
+      weather2,
+      weather3
     ],
     featured: false,
     type: "Weather Dashboard"
@@ -79,8 +111,8 @@ const projects = [
     liveLink: "http://soumaysikchi-todoapp.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      "/projects/TODO_1.png",
-      "/projects/TODO_2.png"
+      todo1,
+      todo2
     ],
     featured: false,
     type: "Task Management Tool"
@@ -98,8 +130,8 @@ const projects = [
     liveLink: "https://musify-jssoumay.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      "/projects/Musify-1.png",
-      "/projects/Musify-2.png"
+      musify1,
+      musify2
     ],
     featured: false,
     type: "Web-based Music Player"
@@ -117,10 +149,10 @@ const projects = [
     liveLink: "https://namaste-dhaba.vercel.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      "/projects/Namaste_Dhaba-1.png",
-      "/projects/Namaste_Dhaba-2.png",
-      "/projects/Namaste_Dhaba-3.png",
-      "/projects/Namaste-Dhaba-4.png"
+      namaste1,
+      namaste2,
+      namaste3,
+      namaste4
     ],
     featured: true,
     type: "Interactive Food UI"
@@ -145,12 +177,12 @@ const projects = [
     liveLink: "https://stream-gpt-1.web.app/",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      "/projects/GPT-1.png",
-      "/projects/GPT-2.png",
-      "/projects/GPT-3.png",
-      "/projects/GPT-4.png",
-      "/projects/GPT-5.png",
-      "/projects/GPT-6.png"
+      gpt1,
+      gpt2,
+      gpt3,
+      gpt4,
+      gpt5,
+      gpt6
     ],
     featured: true,
     type: "AI-Powered Movie Portal"
@@ -177,9 +209,9 @@ const projects = [
       "https://www.linkedin.com/posts/soumaysikchi_reactjs-reduxtoolkit-youtubeclone-activity-7292107074409218049-gSt-",
     githubLink: "https://github.com/SOUMAYSIKCHI/",
     imageGallery: [
-      "/projects/devtube-1.png",
-      "/projects/devtube-2.png",
-      "/projects/devtube-3.png"
+      devtube1,
+      devtube2,
+      devtube3
     ],
     featured: true,
     type: "Interactive Video Portal"
